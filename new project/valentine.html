@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #fff;
+        }
+        img {
+            width: 200px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #d32f2f;
+            font-size: 2rem;
+        }
+        .buttons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .yes-button {
+            background-color: #ff0050;
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 5px;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .no-button {
+            background-color: #ccc;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="image_waguri.jpg" alt="Cute Bear">
+    <h1>Will you be my baby?</h1>
+
+    <div class="buttons">
+        <button class="yes-button" onclick="handleYesClick()">Yes</button>
+        <button class="no-button" onclick="handleNoClick()">No</button>
+    </div>
+
+    <script>
+        let messageIndex = 0;
+        const messages = [
+            "No",
+            "Are you positive?",
+            "please my hotiie );",
+            "Pookie please",
+            "Don't do this to me",
+            "I'm gonna cry...",
+            "You're breaking my heart ;(",
+            "suchh a cutie please say yes"
+        ];
+
+        function handleNoClick() {
+            const noButton = document.querySelector('.no-button');
+            const yesButton = document.querySelector('.yes-button');
+            
+            // Change the text of the "No" button
+            noButton.textContent = messages[messageIndex];
+            messageIndex = (messageIndex + 1) % messages.length;
+
+            // Make the "Yes" button bigger
+            const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+            yesButton.style.fontSize = `${currentSize * 1.5}px`;
+            yesButton.style.padding = `${currentSize * 0.8}px ${currentSize * 1.5}px`;
+        }
+
+        function handleYesClick() {
+            window.location.href = "yes_page.html";
+        }
+    </script>
+</body>
+</html>
